@@ -5,16 +5,16 @@ function getSeed() {
 }
 
 function RNGReset() {
-	let s = +prompt("Enter a seed (number from 1 to 999999999).");
+	let s = +prompt("Enter a seed (number from 1 to 9e29).");
 	if (isNaN(s)) return;
-	if (s<0 || s>=1e9 || s!=Math.round(s)) return;
+	if (s<0 || s>=1e33 || s!=Math.round(s)) return;
 	hardReset(false, s);
 }
 
 const RNG_DATA = {
-	rows: 5,
+	rows: 9,
 	minLayers: 1,
-	maxLayers: 5,
+	maxLayers: 9,
 	layers(row) { 
 		let l = Math.max(Math.min(Math.floor(random(getSeed()*row)*RNG_DATA.maxLayers+1), RNG_DATA.maxLayers), RNG_DATA.minLayers);
 		return Math.min(l, row);		
@@ -22,32 +22,32 @@ const RNG_DATA = {
 	chars: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()<.>?{}[]|`~'.split(''),
 	types: ["normal", "static"],
 	rowReqs: {
-		1: new Decimal(10),
-		2: new Decimal(1e6),
-		3: new Decimal(1e25),
-		4: new Decimal(1e80),
-		5: new Decimal(1e300),
+		1: new Decimal(1),
+		2: new Decimal(10)
+		3: new Decimal(100),
+		4: new Decimal(1000),
+		5: new Decimal(10000),
 	},
 	rowBaseExps: {
-		1: new Decimal(0.5),
-		2: new Decimal(0.25),
-		3: new Decimal(0.01),
-		4: new Decimal(0.0025),
-		5: new Decimal(0.001),
+		1: new Decimal(5),
+		2: new Decimal(25),
+		3: new Decimal(100),
+		4: new Decimal(2500),
+		5: new Decimal(10000),
 	},
 	staticRowBaseExps: {
-		1: new Decimal(1),
-		2: new Decimal(1.2),
-		3: new Decimal(1.5),
-		4: new Decimal(2),
-		5: new Decimal(2.5),
+		1: new Decimal(0.4),
+		2: new Decimal(0.7),
+		3: new Decimal(0.3),
+		4: new Decimal(0.11),
+		5: new Decimal(0.5),
 	},
 	rowLayerTotalMultExps: {
-		1: new Decimal(0.5),
-		2: new Decimal(0.75),
-		3: new Decimal(0.875),
-		4: new Decimal(0.95),
-		5: new Decimal(0.98),
+		1: new Decimal(0.1),
+		2: new Decimal(0.2),
+		3: new Decimal(0.3),
+		4: new Decimal(0.4),
+		5: new Decimal(0.5),
 	},
 }
 
