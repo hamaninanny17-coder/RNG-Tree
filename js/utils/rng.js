@@ -12,14 +12,14 @@ function RNGReset() {
 }
 
 const RNG_DATA = {
-	rows: 9,
+	rows: 5,
 	minLayers: 1,
-	maxLayers: 9,
+	maxLayers: 5,
 	layers(row) { 
 		let l = Math.max(Math.min(Math.floor(random(getSeed()*row)*RNG_DATA.maxLayers+1), RNG_DATA.maxLayers), RNG_DATA.minLayers);
 		return Math.min(l, row);		
 	},
-	chars: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()<.>?{}[]|`~'.split(''),
+	chars: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()<.>?{}[]|`~,\//¡©¿¨½¼¾'.split(''),
 	types: ["normal", "static"],
 	rowReqs: {
 		1: new Decimal(1),
