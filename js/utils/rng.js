@@ -7,7 +7,7 @@ function getSeed() {
 function RNGReset() {
 	let s = +prompt("Enter a seed (number from 1 to 999999999).");
 	if (isNaN(s)) return;
-	if (s<0 || s>=1e9 || s!=Math.round(s)) return;
+	if (s<0 || s>=1e20 || s!=Math.round(s)) return;
 	hardReset(false, s);
 }
 
@@ -19,7 +19,7 @@ const RNG_DATA = {
 		let l = Math.max(Math.min(Math.floor(random(getSeed()*row)*RNG_DATA.maxLayers+1), RNG_DATA.maxLayers), RNG_DATA.minLayers);
 		return Math.min(l, row);		
 	},
-	chars: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()'.split(''),
+	chars: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()`~;:'"[]{}-=_+\|/<>,.⁰¹²³⁴⁵⁶⁷⁸⁹¼⅓⅖⅙⅛⅞½⅔⅗⅚⅜⅑¾⅕⅘⅐⅝⅒₀₁₂₃₄₅₆₇₈₉ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪⅫⅬⅭⅮⅯↀↁↂↇↈ∫∬∭∮∯∰αβγδεζηθικλμνξοπρςτυφχψωσϡϝϵ϶ϑϻͷϳϸͱϗϟϼͻϙϲͽͳͼϛϕϰϖϐ¥⃁₫₩֏℃℉©®℗⟦⟧«»‹›‰‱😀😁😂🤣😃😄😅😆😉😊😋😎'.split(''),
 	types: ["normal", "static"],
 	rowReqs: {
 		1: new Decimal(10),
