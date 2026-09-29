@@ -13,7 +13,7 @@ function RNGReset() {
 
 const RNG_DATA = {
 	rows: 5,
-	minLayers: 1,
+	minLayers: 0,
 	maxLayers: 5,
 	layers(row) { 
 		let l = Math.max(Math.min(Math.floor(random(getSeed()*row)*RNG_DATA.maxLayers+1), RNG_DATA.maxLayers), RNG_DATA.minLayers);
