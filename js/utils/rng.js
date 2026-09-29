@@ -12,9 +12,9 @@ function RNGReset() {
 }
 
 const RNG_DATA = {
-	rows: 10,
+	rows: 5,
 	minLayers: 1,
-	maxLayers: 10,
+	maxLayers: 5,
 	layers(row) { 
 		let l = Math.max(Math.min(Math.floor(random(getSeed()*row)*RNG_DATA.maxLayers+1), RNG_DATA.maxLayers), RNG_DATA.minLayers);
 		return Math.min(l, row);		
@@ -22,6 +22,7 @@ const RNG_DATA = {
 	chars: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()<.>?{}[]|`~,\//¡©®¿¨½¼¾αβγδεζηθικλμνξοπρςτυφχψωσϡϝ'.split(''),
 	types: ["normal", "static"],
 	rowReqs: {
+		0: new Decimal(0.01)
 		1: new Decimal(0.1),
 		2: new Decimal(10)
 		3: new Decimal(100),
@@ -29,6 +30,7 @@ const RNG_DATA = {
 		5: new Decimal(10000),
 	},
 	rowBaseExps: {
+		0: new Decimal(1)
 		1: new Decimal(5),
 		2: new Decimal(25),
 		3: new Decimal(100),
@@ -36,6 +38,7 @@ const RNG_DATA = {
 		5: new Decimal(10000),
 	},
 	staticRowBaseExps: {
+		0: new Decimal(0.1)
 		1: new Decimal(0.4),
 		2: new Decimal(0.7),
 		3: new Decimal(0.3),
@@ -43,6 +46,7 @@ const RNG_DATA = {
 		5: new Decimal(0.5),
 	},
 	rowLayerTotalMultExps: {
+		0: new Decimal(0.05)
 		1: new Decimal(0.1),
 		2: new Decimal(0.2),
 		3: new Decimal(0.3),
